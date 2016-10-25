@@ -1,11 +1,18 @@
 {
 	"name": "purakujs",
-	"version": "1.0.0",
+	"version": "0.0.8",
 	"main": "dist/index.js",
 	"author": "Yukai Huang <yukaihuangtw@gmail.com>",
 	"license": "MIT",
+  "config": {
+    "prepublish": {
+      "purity": true
+    }
+  },
 	"scripts": {
-		"dev": "babel src --watch --out-dir dist"
+		"dev": "babel src --watch --out-dir dist",
+		"build": "babel src --out-dir dist",
+    "prepublish": "npm run build"
 	},
 	"dependencies": {
 		"oauth": "^0.9.14",
