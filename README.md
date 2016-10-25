@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/purakujs.svg)](https://badge.fury.io/js/purakujs)
 
+A javascript plurk api client library written in ES6.
+
 ## Install
 
 ```bash
