@@ -1,0 +1,18 @@
+{
+	"name": "purakujs",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"author": "Yukai Huang <yukaihuangtw@gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "babel src --watch --presets babel-preset-es2015 --out-dir dist"
+	},
+	"dependencies": {
+		"oauth": "^0.9.14"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.16.0",
+		"babel-preset-es2015": "^6.16.0",
+		"babel-preset-stage-0": "^6.16.0"
+	}
+}
