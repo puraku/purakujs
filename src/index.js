@@ -84,7 +84,8 @@ export default class Puraku {
 				);
 				break;
 
-			default: // PUT or POST
+			case 'PUT':
+			case 'POST':
 				this.oauthClient._putOrPost(
 					method,
 					`${this.baseURL}${endpoint}`,
@@ -95,6 +96,8 @@ export default class Puraku {
 					callback
 				);
 				break;
+			default:
+				throw('Unsupported HTTP verb');
 			}
 		});
 	}
