@@ -4,6 +4,10 @@
 	"main": "dist/index.js",
 	"author": "Yukai Huang <yukaihuangtw@gmail.com>",
 	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/puraku/purakujs"
+	},
   "config": {
     "prepublish": {
       "purity": true
