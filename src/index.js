@@ -1,14 +1,14 @@
 import { OAuth } from 'oauth';
 import qs from 'qs';
 
+const BASE_URL = 'https://www.plurk.com';
+
 export default class Puraku {
 	constructor({consumerKey, consumerSecret, accessToken, accessTokenSecret}) {
 		this.consumerKey       = consumerKey;
 		this.consumerSecret    = consumerSecret;
 		this.accessToken       = accessToken;
 		this.accessTokenSecret = accessTokenSecret;
-
-		this.baseURL = 'https://www.plurk.com';
 
 		this.oauthClient = new OAuth(
 			'https://www.plurk.com/OAuth/request_token',
@@ -69,7 +69,7 @@ export default class Puraku {
 					this.accessToken,
 					this.accessTokenSecret,
 					method,
-					params ? `${this.baseURL}${endpoint}?${qs.stringify(params)}` : `${this.baseURL}${endpoint}`,
+					params ? `${BASE_URL}${endpoint}?${qs.stringify(params)}` : `${BASE_URL}${endpoint}`,
 					null,
 					'',
 					null,
@@ -81,7 +81,7 @@ export default class Puraku {
 			case 'POST':
 				this.oauthClient._putOrPost(
 					method,
-					`${this.baseURL}${endpoint}`,
+					`${BASE_URL}${endpoint}`,
 					this.accessToken,
 					this.accessTokenSecret,
 					params,
@@ -93,5 +93,15 @@ export default class Puraku {
 				throw('Unsupported HTTP verb');
 			}
 		});
+	}
+
+	static authorizationEndpoint({oauthToken: oauth_token, deviceid, model}) {
+		let params = {
+			oauth_token,
+			deviceid,
+			model
+		};
+
+		return `${BASE_URL}/OAuth/authorize?${qs.stringify(params)}`;
 	}
 }
