@@ -8,7 +8,8 @@
 		"dev": "babel src --watch --out-dir dist"
 	},
 	"dependencies": {
-		"oauth": "^0.9.14"
+		"oauth": "^0.9.14",
+		"qs": "^6.3.0"
 	},
 	"devDependencies": {
 		"babel-cli": "^6.16.0",
