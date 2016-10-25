@@ -28,23 +28,45 @@ export default class Puraku {
 		);
 	}
 
-	getRequestToken(callback) {
-		this.oauthClient.getOAuthRequestToken(callback);
+	getRequestToken() {
+		return new Promise((resolve, reject) => {
+			const callback = (error, oauthToken, oauthTokenSecret, results) => {
+				if (error) {
+					reject(error);
+				} else {
+					resolve({oauthToken, oauthTokenSecret, results});
+				}
+			};
+
+			this.oauthClient.getOAuthRequestToken(callback);
+		});
 	}
 
-	getOAuthAccessToken({oauthToken, oauthTokenSecret, oauthVerifier}, callback) {
-		this.oauthClient.getOAuthAccessToken(oauthToken, oauthTokenSecret, oauthVerifier, (error, accessToken, accessTokenSecret) => {
-			this.accessToken = accessToken;
-			this.accessTokenSecret = accessTokenSecret;
-			callback({accessToken, accessTokenSecret});
+	getOAuthAccessToken({oauthToken, oauthTokenSecret, oauthVerifier}) {
+		return new Promise((resolve, reject) => {
+			const callback = (error, accessToken, accessTokenSecret) => {
+				if (error) {
+					reject(error);
+				} else {
+					this.accessToken = accessToken;
+					this.accessTokenSecret = accessTokenSecret;
+
+					resolve({accessToken, accessTokenSecret});
+				}
+			};
+
+			this.oauthClient.getOAuthAccessToken(oauthToken, oauthTokenSecret, oauthVerifier, callback);
 		});
 	}
 
 	request(method='GET', endpoint, params=null) {
 		return new Promise((resolve, reject) => {
 			const callback = (error, data, response) => {
-				if (error) { reject(error); }
-				resolve({data, response});
+				if (error) {
+					reject(error);
+				} else {
+					resolve({data, response});
+				}
 			};
 
 			switch(method) {
