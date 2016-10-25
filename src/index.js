@@ -2,14 +2,7 @@ import { OAuth } from 'oauth';
 import qs from 'qs';
 
 export default class Puraku {
-	constructor(opts = {}) {
-		const {
-			consumerKey,
-			consumerSecret,
-			accessToken,
-			accessTokenSecret
-		} = opts;
-
+	constructor({consumerKey, consumerSecret, accessToken, accessTokenSecret}) {
 		this.consumerKey       = consumerKey;
 		this.consumerSecret    = consumerSecret;
 		this.accessToken       = accessToken;
