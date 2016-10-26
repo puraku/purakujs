@@ -1,6 +1,6 @@
 {
 	"name": "purakujs",
-	"version": "0.0.10",
+	"version": "0.1.0",
 	"main": "dist/index.js",
 	"author": "Yukai Huang <yukaihuangtw@gmail.com>",
 	"license": "MIT",
