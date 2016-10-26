@@ -1,8 +1,8 @@
-# purakujs - a javascript plurk api client library in ES6
+# purakujs - a nodejs plurk api client library in ES6
 
 [![npm version](https://badge.fury.io/js/purakujs.svg)](https://badge.fury.io/js/purakujs)
 
-A javascript plurk api client library written in ES6.
+A nodejs plurk api client library written in ES6.
 
 ## Install
 
