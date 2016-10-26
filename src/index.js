@@ -95,7 +95,7 @@ export default class Puraku {
 		});
 	}
 
-	static authorizationEndpoint({oauthToken: oauth_token, deviceid, model}) {
+	static authorizationEndpoint({oauthToken: oauth_token, deviceID: deviceid, model}) {
 		let params = {
 			oauth_token,
 			deviceid,
