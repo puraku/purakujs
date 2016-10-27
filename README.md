@@ -25,7 +25,7 @@ client.getRequestToken().then(({oauthToken, oauthTokenSecret}) => {
   // Plurk then give user a 6-digit pin code
   loadURL(`http://www.plurk.com/OAuth/authorize?oauth_token=${oauthToken}`);
 
-  // get pin code from user input or some injected script
+  // get pin code from user input or redirect url query parameter
   let oauthVerifier = getPinCode();
 
   client.getOAuthAccessToken({oauthToken, oauthTokenSecret, oauthVerifier}).then(() => {
