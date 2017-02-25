@@ -23,7 +23,7 @@ let client = new Puraku({
 client.getRequestToken().then(({oauthToken, oauthTokenSecret}) => {
   // open this url in Browser and accept the authentication request
   // Plurk then give user a 6-digit pin code
-  loadURL(`http://www.plurk.com/OAuth/authorize?oauth_token=${oauthToken}`);
+  loadURL(`https://www.plurk.com/OAuth/authorize?oauth_token=${oauthToken}`);
 
   // get pin code from user input or redirect url query parameter
   let oauthVerifier = getPinCode();
